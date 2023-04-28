@@ -12,10 +12,12 @@ exports.createUser = catchAsyncError(async (req, res, next) => {
             url: "this is avatar"
         }
     })
+
     sendToken(user, res, 200)
 })
 
 exports.loginUser = catchAsyncError(async (req, res, next) => {
+
     const { email, password } = req.body
     if (!email || !password) {
         return next(new Errorhander("please enter email and password", 400))
